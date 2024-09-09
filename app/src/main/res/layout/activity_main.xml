@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewMode"
+            type="com.matsu.dai.caloriecalc.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/input_and_out_put_notice"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+        <include
+            android:id="@+id/protein"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="12dp"
+            app:inputTitle="@{@string/protein}"
+            app:inputText="@={viewMode.inputProtein}"
+            app:layout_constraintTop_toBottomOf="@id/notice"
+            layout="@layout/item_input_field"
+            />
+
+        <include
+            android:id="@+id/fat"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            layout="@layout/item_input_field"
+            app:inputTitle="@{@string/fat}"
+            app:inputText="@={viewMode.inputFat}"
+            app:layout_constraintTop_toBottomOf="@id/protein"
+            />
+
+        <include
+            android:id="@+id/carbohydrate"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            layout="@layout/item_input_field"
+            app:inputTitle="@{@string/carbohydrate}"
+            app:inputText="@={viewMode.inputCarbohydrate}"
+            app:layout_constraintTop_toBottomOf="@id/fat"
+            />
+
+        <include
+            android:id="@+id/foodName"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:maxLength="20"
+            app:inputTitle="@{@string/food_name}"
+            app:inputText="@={viewMode.foodName}"
+            app:isInputString="@{true}"
+            app:layout_constraintTop_toBottomOf="@id/carbohydrate"
+            layout="@layout/item_input_field"
+            />
+
+        <include
+            android:id="@+id/quantity"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            layout="@layout/item_input_field"
+            app:inputTitle="@{@string/quantity}"
+            app:layout_constraintTop_toBottomOf="@id/foodName"
+            />
+
+        <TextView
+            android:id="@+id/errorMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:text="@{viewMode.inputError}"
+            app:layout_constraintTop_toBottomOf="@id/quantity"
+            />
+
+        <TextView
+            android:id="@+id/totalCal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:text="@{viewMode.totalCal}"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_button"
+            app:layout_goneMarginTop="10dp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/input_food_list_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adapter="@{viewMode.adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/totalCal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="@string/add"
+            android:textSize="20dp"
+            android:onClick="@{v -> viewMode.onAddButton()}"
+            android:enabled="@{viewMode.enabledAddButton}"
+            app:layout_constraintTop_toBottomOf="@+id/errorMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

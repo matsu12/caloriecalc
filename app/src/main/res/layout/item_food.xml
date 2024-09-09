@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewHolder"
+            type="com.matsu.dai.caloriecalc.FoodAdapter.FoodViewHolder" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="@{viewHolder.foodName}"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/protein_quantity"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:text="@{viewHolder.protein}"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/fat_quantity"
+            app:layout_constraintHorizontal_weight="1"
+            />
+
+
+        <TextView
+            android:id="@+id/fat_quantity"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:text="@{viewHolder.fat}"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/protein_quantity"
+            app:layout_constraintStart_toEndOf="@id/protein_quantity"
+            app:layout_constraintEnd_toStartOf="@id/carbohydrate_quantity"
+            app:layout_constraintHorizontal_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/carbohydrate_quantity"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:text="@{viewHolder.carbohydrate}"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/fat_quantity"
+            app:layout_constraintStart_toEndOf="@id/fat_quantity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/food_cal"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="@{viewHolder.cal}"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/protein_quantity"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

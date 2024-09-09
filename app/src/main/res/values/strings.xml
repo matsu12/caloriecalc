@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">caloriecalc</string>
+    <string name="food_name">食品名</string>
+    <string name="protein">タンパク質</string>
+    <string name="fat">脂質</string>
+    <string name="carbohydrate">炭水化物</string>
+    <string name="quantity">量</string>
+    <string name="input_hint_gramme">1.1</string>
+    <string name="input_hint_name">白米</string>
+    <string name="error_input_number">%1$sは数値で入力してください(小数点の入力は可能です)</string>
+    <string name="error_input_under">%1$sにマイナスは利用できません</string>
+    <string name="total_cal">合計カロリー: %1$d kcal</string>
+    <string name="item_food_name">食品名: %1$s</string>
+    <string name="item_protein">タンパク質： %1$s g</string>
+    <string name="item_fat">脂質質： %1$s g</string>
+    <string name="item_carbohydrate">炭水化物： %1$s g</string>
+    <string name="item_food_cal">カロリー： %1$s kcal</string>
+    <string name="add">追加</string>
+    <string name="input_and_out_put_notice">● 各摂取量については小数第一位(小数第二位を四捨五入)の値で計算されます。\n● カロリー(kcal)については整数(小数第一位を四捨五入)で表示されます。</string>
+</resources>
